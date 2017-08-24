@@ -1,0 +1,11 @@
+commit 3a299361697179c25ffcf14644f3956a439b5247
+tree 621ac75696087d82f6f6d8d36ed6df37a5f2cbb2
+parent 9cc95bbb676b1e37f6439fb95c421f6a0327f0bb
+author Administrator <admin@example.com> 2017-03-06 13:25:14 +0000
+committer Administrator <admin@example.com> 2017-03-06 13:25:14 +0000
+
+    Updated from statement
+
+
+
+:100644 100644 2395964171ee31ab1119ab7f68a2fe9458345f4a c5f0cb7dde20462e16072f32037665b008647765 M	Docker/foundation/Dockerfile

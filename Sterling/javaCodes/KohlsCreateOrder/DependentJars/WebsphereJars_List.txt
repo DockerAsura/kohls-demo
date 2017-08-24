@@ -1,0 +1,10 @@
+-- Please download these jars from Websphere 8.5 folder --
+
+com.ibm.ws.messagingClient
+com.ibm.ws.sib.client.thin.jms_8.5.0.jar
+com.ibm.ws.ejb.thinclient_8.5.0.jar
+com.ibm.jaxws.thinclient_8.5.0.jar
+com.ibm.ws.webservices.thinclient_8.5.0.jar
+com.ibm.xml.thinclient_8.5.0.jar
+com.ibm.ws.jpa.thinclient_8.5.0.jar
+com.ibm.jaxrs.thinclient_8.5.0.jar

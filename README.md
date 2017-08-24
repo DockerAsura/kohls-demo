@@ -1,0 +1,1 @@
+This is the project repository for Kohl's Sterling OMS Automation Demo using Docker Container

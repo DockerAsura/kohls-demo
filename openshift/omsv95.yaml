@@ -1,0 +1,238 @@
+---
+kind: Template
+apiVersion: v1
+metadata:
+  name: sterling-oms
+  creationTimestamp: 
+  annotations:
+    openshift.io/display-name: Sterling OMS
+    description: |-
+      Sterling OMS Service, deploys a Sterling foundation and websphere container.
+
+      
+    iconClass: icon-Sterling
+    tags: instant-app,Sterling
+    template.openshift.io/long-description: This template deploys a Sterling server
+      capable of managing OpenShift Pipeline builds and supporting OpenShift-based
+      oauth login.  The Was configuration is stored in non-persistent storage,
+      so this configuration should be used for experimental purposes only.
+    template.openshift.io/provider-display-name: DST, IBM.
+    template.openshift.io/documentation-url: https://docs.openshift.org/latest/using_images/other_images/jenkins.html
+    template.openshift.io/support-url: https://dst.ibm.com
+message: contains more information about using this template.
+objects:
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: was
+    creationTimestamp: 
+  spec:
+        path: /smcfs/login.jsp
+    to:
+      kind: Service
+      name: was
+
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    name: was
+    creationTimestamp: 
+  spec:
+    strategy:
+      type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {}
+    triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+        - was
+        from:
+          kind: ImageStreamTag
+          name: sterlingwas855:v10
+          namespace: openshift
+        lastTriggeredImage: ''
+    - type: ConfigChange
+    replicas: 1
+    selector:
+      name: was
+    template:
+      metadata:
+        creationTimestamp: 
+        labels:
+          name: was
+      spec:
+        
+        containers:
+        - name: was
+          image: " "
+          
+          env:
+          - name: DBSERVERIP
+            value: 9.109.123.196
+                    
+          resources: {}            
+          terminationMessagePath: "/dev/termination-log"
+          imagePullPolicy: IfNotPresent
+          capabilities: {}
+          securityContext:
+            capabilities: {}
+            privileged: false        
+        restartPolicy: Always
+        dnsPolicy: ClusterFirst
+
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    name: db
+    creationTimestamp: 
+  spec:
+    strategy:
+      type: Recreate
+    triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+        - db
+        from:
+          kind: ImageStreamTag
+          name: db2105:latest
+          namespace: openshift
+        lastTriggeredImage: ''
+    - type: ConfigChange
+    replicas: 1
+    selector:
+      name: db
+    template:
+      metadata:
+        creationTimestamp: 
+        labels:
+          name: db
+      spec:
+        
+        containers:
+        - name: db
+          image: " "
+          
+          env:
+          - name: DBSERVERIP
+            value: 9.109.123.196
+                    
+          resources: {}            
+          terminationMessagePath: "/dev/termination-log"
+          imagePullPolicy: IfNotPresent
+          capabilities: {}
+          securityContext:
+            capabilities: {}
+            privileged: false        
+        restartPolicy: Always
+        dnsPolicy: ClusterFirst
+
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    name: foundation
+    creationTimestamp: 
+  spec:
+    strategy:
+      type: Recreate
+    triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+        - was
+        from:
+          kind: ImageStreamTag
+          name: sterlingagent:latest
+          namespace: openshift
+        lastTriggeredImage: ''
+    - type: ConfigChange
+    replicas: 1
+    selector:
+      name: foundation
+    template:
+      metadata:
+        creationTimestamp: 
+        labels:
+          name: foundation
+      spec:
+        
+        containers:
+        - name: was
+          image: " "
+                    
+          resources: {}            
+          terminationMessagePath: "/dev/termination-log"
+          imagePullPolicy: IfNotPresent
+          capabilities: {}
+          securityContext:
+            capabilities: {}
+            privileged: false        
+        restartPolicy: Always
+        dnsPolicy: ClusterFirst
+
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: was
+    annotations:
+      service.alpha.openshift.io/dependencies: '[{"name":"db", "namespace": "","kind":"Service"}]'
+    creationTimestamp: 
+  spec:
+    ports:
+    - name: web
+      protocol: TCP
+      port: 9080
+      targetPort: 9080
+      nodePort: 0
+    selector:
+      name: was
+    type: ClusterIP
+    sessionAffinity: None
+
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: db
+    creationTimestamp: 
+  spec:
+    ports:
+    - name: db
+      protocol: TCP
+      port: 50000
+      targetPort: 50000
+      nodePort: 0
+    selector:
+      name: db
+    type: ClusterIP
+    sessionAffinity: None
+
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: foundation
+    creationTimestamp: 
+  spec:
+    ports:
+    - name: foundation
+      protocol: TCP
+      port: 50001
+      targetPort: 50001
+      nodePort: 0
+    selector:
+      name: foundation
+    type: ClusterIP
+    sessionAffinity: None
+
+
+
+labels:
+  template: Sterling-ephemeral-template

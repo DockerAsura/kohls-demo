@@ -1,0 +1,11 @@
+commit 4b5635c28fbb54342ab26c6b1721957928aa4fd0
+tree 85c1e5ce9eef893e7a81604cd5722d944a30e66d
+parent ecac865a77decfb18fd3f858affa8234d3cadc13
+author Administrator <admin@example.com> 2017-03-07 17:37:19 +0000
+committer Administrator <admin@example.com> 2017-03-07 17:37:19 +0000
+
+    Update Dockerfile demo
+
+
+
+:100644 100644 5723bf1c3d9ab72573de93ab12a7646842b26d8b 210c9141624cdc16ae9f69f7a0fe5b7e1dd9e586 M	Docker/foundation/Dockerfile

@@ -1,0 +1,22 @@
+commit 81c07574e7a217cdc7216ea8a9e349f444d4a337
+tree 1724f79b209f3159eb0cb46ba71b091135040afb
+parent 5bc4759aba32ddaf7ef01d2bbdea9744ce6a4e52
+author Administrator <admin@example.com> 2017-03-06 14:07:07 +0000
+committer Administrator <admin@example.com> 2017-03-06 14:07:07 +0000
+
+    Update docker file FROM statement download ear file
+
+
+
+:100644 100644 2d22cffbd1ce55670f169c1254ac0776483f5ebd 90bdf949b4d431f5eb36e47ef71459d1fe8b011e M	Docker/was/Dockerfile
+commit d6c3e48c88c6e6f298d9083c43684523cd0b7bdf
+tree 79894972759fee4eaeeb34568cb83a895736b66e
+parent 3a299361697179c25ffcf14644f3956a439b5247
+author PavanKumar <pavanchandragiri@in.ibm.com> 2017-03-06 13:42:38 +0000
+committer PavanKumar <pavanchandragiri@in.ibm.com> 2017-03-06 13:42:38 +0000
+
+    Updated "strategy:type: Recreate" to "strategy:type: Rolling"
+
+
+
+:100644 100644 e0c3f601a9acae7973d14afaaef5d581fcc654b9 a1be1266d2e34ea08a688df5a37503729f76a9d0 M	openshift/omsv95.yaml

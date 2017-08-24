@@ -1,0 +1,4 @@
+-- JMSTester_Kohl.java --
+    - the code pushes 'n' create order xmls to the WAS CREATE_ORDER queue.
+    - the code needs to be run from an IDE like eclipse
+    - check the depenedent jar list in the DependentJars directory

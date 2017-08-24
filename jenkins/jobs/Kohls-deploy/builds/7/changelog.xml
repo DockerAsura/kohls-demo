@@ -1,0 +1,11 @@
+commit 5c4e8afc2fb985358aef94832fc2dd876b1c6068
+tree 39269238b87c57731af724cfddfe69ef52662448
+parent 81c07574e7a217cdc7216ea8a9e349f444d4a337
+author Administrator <admin@example.com> 2017-03-06 14:35:27 +0000
+committer Administrator <admin@example.com> 2017-03-06 14:35:27 +0000
+
+    correctd FROM statement
+
+
+
+:100644 100644 90bdf949b4d431f5eb36e47ef71459d1fe8b011e 1358f34e8934dc8226b6a057b9872f8d8ddb811e M	Docker/was/Dockerfile

@@ -1,0 +1,11 @@
+commit 50b5df2b1bd0fcd5cc7c4713aef9338f47edb78c
+tree 74bd9fc8fede42b81df9e3ab275f348a722b8d20
+parent 5c4e8afc2fb985358aef94832fc2dd876b1c6068
+author Administrator <admin@example.com> 2017-03-06 14:36:57 +0000
+committer Administrator <admin@example.com> 2017-03-06 14:36:57 +0000
+
+    Update Dockerfile
+
+
+
+:100644 100644 1358f34e8934dc8226b6a057b9872f8d8ddb811e 37c1a136561e8188933894635c5678932206c86e M	Docker/was/Dockerfile

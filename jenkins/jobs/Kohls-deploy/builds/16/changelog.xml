@@ -1,0 +1,11 @@
+commit ac9cf6d263f42dc8402b8f526a98637647767f45
+tree c540c179fb175e4adf1f521b6b92ddac9aca944f
+parent 8643b17f2c522a30edf77b13d93894ea7533d09e
+author Administrator <admin@example.com> 2017-03-06 16:05:37 +0000
+committer Administrator <admin@example.com> 2017-03-06 16:05:37 +0000
+
+    simulate change
+
+
+
+:100644 100644 37c1a136561e8188933894635c5678932206c86e 46c8a616da182b008a21dd910959924dd351cc40 M	Docker/was/Dockerfile

@@ -1,0 +1,11 @@
+commit ecac865a77decfb18fd3f858affa8234d3cadc13
+tree 6857ecc552a1dfa0a8addcc7a58fe9f2c5873cb4
+parent ac9cf6d263f42dc8402b8f526a98637647767f45
+author Administrator <admin@example.com> 2017-03-07 05:40:55 +0000
+committer Administrator <admin@example.com> 2017-03-07 05:40:55 +0000
+
+    Kohls demo simulate change
+
+
+
+:100644 100644 e49aa1dcefd1293bcaaec68842ffc34b8b7e064b 5723bf1c3d9ab72573de93ab12a7646842b26d8b M	Docker/foundation/Dockerfile

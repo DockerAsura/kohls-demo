@@ -1,0 +1,11 @@
+commit c28c9da851618c3f0fcf707d038fb500500fcd21
+tree 7ce311ea07147280507209a59bdf10fc131dbaf7
+parent cb083edfa5da2c9b145b296d75333530644d274a
+author PavanKumar <pavanchandragiri@in.ibm.com> 2017-03-06 12:18:23 +0000
+committer PavanKumar <pavanchandragiri@in.ibm.com> 2017-03-06 12:18:23 +0000
+
+    Updated DB2 and foundation (Images), added into template
+
+
+
+:100644 100644 2a2f848a4e0f40ab83e2f84f8c345ccb4ac2e8fc 366c72172deff861ca46dff397487c0a569b7a15 M	openshift/omsv95.yaml

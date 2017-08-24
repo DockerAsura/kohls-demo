@@ -1,0 +1,11 @@
+commit ac70f92e798a8d06aba2a0f90aaf90c1da9f1825
+tree b6e034a46ce5f6b62833128bf38c3eaabab94723
+parent 50b5df2b1bd0fcd5cc7c4713aef9338f47edb78c
+author Administrator <admin@example.com> 2017-03-06 15:43:03 +0000
+committer Administrator <admin@example.com> 2017-03-06 15:43:03 +0000
+
+    Trigger a demo
+
+
+
+:100644 100644 c5f0cb7dde20462e16072f32037665b008647765 ef6d92c9bbdc8bc9e23920a573de4ece746c60f0 M	Docker/foundation/Dockerfile

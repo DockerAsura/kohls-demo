@@ -1,0 +1,6 @@
+*** Extracted from the email sent by Charls ***
+Instructions to replace the OOTB logo.
+
+- Replace the extensions folder in the Sterling foundation container with the one here in GitLab.
+- Follow the same build procedure: build resource.jar >> build entities.jar >> build smcfs.ear
+- Deploy the new ear

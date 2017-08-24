@@ -1,0 +1,104 @@
+---
+kind: Template
+apiVersion: v1
+metadata:
+  name: sterling-oms
+  creationTimestamp: 
+  annotations:
+    openshift.io/display-name: Sterling OMS
+    description: |-
+      Sterling OMS Service, deploys a Sterling foundation and websphere container.
+
+      
+    iconClass: icon-Sterling
+    tags: instant-app,Sterling
+    template.openshift.io/long-description: This template deploys a Sterling server
+      capable of managing OpenShift Pipeline builds and supporting OpenShift-based
+      oauth login.  The Was configuration is stored in non-persistent storage,
+      so this configuration should be used for experimental purposes only.
+    template.openshift.io/provider-display-name: DST, IBM.
+    template.openshift.io/documentation-url: https://docs.openshift.org/latest/using_images/other_images/jenkins.html
+    template.openshift.io/support-url: https://dst.ibm.com
+message: contains more information about using this template.
+objects:
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: was
+    creationTimestamp: 
+  spec:
+    to:
+      kind: Service
+      name: was
+
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    name: was
+    creationTimestamp: 
+  spec:
+    strategy:
+      type: Recreate
+    triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+        - was
+        from:
+          kind: ImageStreamTag
+          name: rsc_oms95_was85_appserver_isccs_wsc:v6
+          namespace: openshift
+        lastTriggeredImage: ''
+    - type: ConfigChange
+    replicas: 1
+    selector:
+      name: was
+    template:
+      metadata:
+        creationTimestamp: 
+        labels:
+          name: was
+      spec:
+        
+        containers:
+        - name: was
+          image: " "
+          
+          env:
+          - name: DBSERVERIP
+            value: 9.109.123.196
+                    
+          resources: {}            
+          terminationMessagePath: "/dev/termination-log"
+          imagePullPolicy: IfNotPresent
+          capabilities: {}
+          securityContext:
+            capabilities: {}
+            privileged: false        
+        restartPolicy: Always
+        dnsPolicy: ClusterFirst
+
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: was
+    annotations:
+      service.alpha.openshift.io/dependencies: '[{"name": "${JNLP_SERVICE_NAME}",
+        "namespace": "", "kind": "Service"}]'
+      service.openshift.io/infrastructure: 'true'
+    creationTimestamp: 
+  spec:
+    ports:
+    - name: web
+      protocol: TCP
+      port: 9080
+      targetPort: 9080
+      nodePort: 0
+    selector:
+      name: was
+    type: ClusterIP
+    sessionAffinity: None
+
+labels:
+  template: Sterling-ephemeral-template

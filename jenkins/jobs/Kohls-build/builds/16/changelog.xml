@@ -1,0 +1,22 @@
+commit 3636b3c9d5c9ec90eedaba83ecb053dc98072fad
+tree 73b16b100af99cfa41f4da1b7ef56b18cd1568e1
+parent 90413121dc45571f9570c416d15bad69b95de9d7
+author Administrator <admin@example.com> 2017-03-06 12:53:23 +0000
+committer Administrator <admin@example.com> 2017-03-06 12:53:23 +0000
+
+    Updated artifactory upload location fixed add command
+
+
+
+:100644 100644 c11c57c86eb59cbd92b33d717961226be95677ea 02e2ee0fa481de36abbc87f5b083e0af286dc03a M	Docker/foundation/Dockerfile
+commit 770cd6535e154a1f09f5327c6bd1304288340cdf
+tree 8728dcf5c55d3dc291df3d111ddc22ee2aa1c9ab
+parent 90413121dc45571f9570c416d15bad69b95de9d7
+author PavanKumar <pavanchandragiri@in.ibm.com> 2017-03-06 12:52:23 +0000
+committer PavanKumar <pavanchandragiri@in.ibm.com> 2017-03-06 12:52:23 +0000
+
+    added a route path
+
+
+
+:100644 100644 366c72172deff861ca46dff397487c0a569b7a15 e0c3f601a9acae7973d14afaaef5d581fcc654b9 M	openshift/omsv95.yaml
